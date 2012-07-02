@@ -36,6 +36,11 @@
 	-webkit-transform-origin: 0 0;
 	}
 
+.griddy-column {
+	width: 220px;
+	float: left;
+	}
+	
 .griddy-viewer {
 	position:absolute;
 	top: 0;
