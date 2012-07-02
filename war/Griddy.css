@@ -1,0 +1,58 @@
+/** Add css rules here for your application. */
+
+#griddy-body {
+	background: #666;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	}
+
+.griddy-view {
+	height: 100%;
+	width:100%;
+	-webkit-perspective: 1000;
+	}
+	
+.griddy-image {
+	margin: 10px;
+	opacity: 1;
+	/*-webkit-transition: all 0.5s ease-in-out;*/
+	-webkit-box-shadow: 2px 3px 3px #333;
+	}
+	
+.griddy-image.clicked {
+	opacity: 0;
+	}
+	
+.griddy-panel {
+	position:absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 1s;
+	-webkit-transform-origin: 0 0;
+	}
+
+.griddy-viewer {
+	position:absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+	opacity: 0;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-transition: all 1s ease-in-out;
+	}
+	
+.griddy-viewer.shown {
+	opacity: 1;
+	}
+	
+.griddy-panel.flip {
+	-webkit-transform: rotateY(-180deg) translateZ(100px) translateX(100px);
+	}
