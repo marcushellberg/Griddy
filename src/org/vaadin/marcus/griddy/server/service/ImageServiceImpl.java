@@ -7,19 +7,23 @@ import org.vaadin.marcus.griddy.client.service.ImageService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-public class ImageServiceImpl  extends RemoteServiceServlet implements ImageService{
+public class ImageServiceImpl extends RemoteServiceServlet implements
+		ImageService {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	/**
+	 * Returns urls to images, currently hard-coded.
+	 */
 	@Override
 	public List<String> getImages() {
-		
+
 		List<String> images = new ArrayList<String>();
-		
-		for(int i = 1; i<=14; i++){
-			images.add("images/shape-"+i+".jpg");
+
+		for (int i = 1; i <= 14; i++) {
+			images.add("images/shape-" + i + ".jpg");
 		}
-		
+
 		return images;
 	}
 

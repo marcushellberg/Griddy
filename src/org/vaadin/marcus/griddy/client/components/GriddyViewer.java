@@ -10,43 +10,68 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 
+/**
+ * Viewer class responsible for showing the full-sized image. When image is
+ * clicked, listeners are notified so view can be hidden.
+ * 
+ * @author Marcus Hellberg / Vaadin
+ * 
+ */
 public class GriddyViewer extends FlowPanel {
 
 	Set<ImageSelectedListener> listeners = new HashSet<ImageSelectedListener>();
-	private Image fullSize;
+
+	protected Image fullSizeImage;
 
 	public GriddyViewer() {
 		setStyleName("griddy-viewer");
 	}
 
+	/**
+	 * Show full-size version of given {@link GriddyImage}.
+	 * 
+	 * @param image
+	 */
 	public void showImage(GriddyImage image) {
 		addStyleName("shown");
-		fullSize = new Image();
-		fullSize.setStyleName("full-size");
-		fullSize.setUrl(image.getFullUrl());
-		fullSize.addClickHandler(new ClickHandler() {
-			
+		fullSizeImage = new Image();
+		fullSizeImage.setStyleName("full-size");
+		fullSizeImage.setUrl(image.getFullUrl());
+		fullSizeImage.addClickHandler(new ClickHandler() {
+
 			@Override
 			public void onClick(ClickEvent event) {
 				imageClicked();
 			}
 		});
-		add(fullSize);
+		add(fullSizeImage);
 	}
-	
 
+	/**
+	 * Remove stylename and fire event to listeners.
+	 */
 	protected void imageClicked() {
 		removeStyleName("shown");
-		remove(fullSize);
+		remove(fullSizeImage);
 		for (ImageSelectedListener listener : listeners) {
 			listener.imageSelected(null);
 		}
 	}
 
+	/**
+	 * Register new {@link ImageSelectedListener}.
+	 * 
+	 * @param listener
+	 */
 	public void addImageSelectedListener(ImageSelectedListener listener) {
 		listeners.add(listener);
 	}
 
+	/**
+	 * Remove given {@link ImageSelectedListener}.
+	 * 
+	 * @param listener
+	 */
 	public void removeImageSelectedListener(ImageSelectedListener listener) {
 		listeners.remove(listener);
 	}
