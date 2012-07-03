@@ -87,8 +87,7 @@ public class GriddyView extends FlowPanel implements ImageSelectedListener {
 	}
 
 	/**
-	 * Returns an instance of {@link ImageServiceAsync}, intitiates it if
-	 * needed.
+	 * Returns an instance of {@link ImageServiceAsync}, initiates it if needed.
 	 * 
 	 * @return
 	 */
